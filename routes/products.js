@@ -13,7 +13,7 @@ router.get('/', authMiddleware, async (req, res) => {
     try {
         // 查询所有商品
         const [products] = await db.query(
-            'SELECT id, name, price, created_at FROM products ORDER BY id ASC'
+            'SELECT id, name, price, FROM products ORDER BY id ASC'
         );
         
         res.json({
@@ -48,7 +48,7 @@ router.get('/:id', authMiddleware, async (req, res) => {
         const productId = req.params.id;
         
         const [products] = await db.query(
-            'SELECT id, name, price, created_at FROM products WHERE id = ?',
+            'SELECT id, name, price, FROM products WHERE id = ?',
             [productId]
         );
         
